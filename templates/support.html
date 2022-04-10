@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block form %}
+{% for cat, msg in get_flashed_messages(True) %}
+<div class="flash {{ cat }}">{{ msg }}</div>
+{% endfor %}
+<form action='/support' method="post">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email: </label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Сообщение</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="message"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Отправить</button>
+</form>
+{% endblock %}
